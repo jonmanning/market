@@ -1,0 +1,19 @@
+<div class="kb_body">
+     <div class="kb_body_text">
+          <?php
+          $dir = $this->getDirectory();
+          if (!empty($dir)) {
+               foreach ($dir as $key => $entry) {
+                    ?>
+                    <div id="<?php echo $key; ?>" class="kb-catalog-entry">
+                    <p><h2><?php echo $key; ?></p></h2>
+                    <?php
+                    foreach ($entry as $view) {
+                         echo $view;
+                    }
+               }
+          }
+          ?>
+          </div>
+     </div>
+</div>

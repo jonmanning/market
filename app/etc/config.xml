@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <site>
+        <creator>Jon Manning Coleman</creator>
+        <title>Micfo Test Site</title>
+        <description>This is not for production purposes.</description>
+        <footer>Micfo</footer>
+     </site>
+</config>

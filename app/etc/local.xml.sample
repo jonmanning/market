@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <database>
+          <local>
+               <dbname></dbname>
+               <host></host>
+               <username><![CDATA[]]></username>
+               <password><![CDATA[]]></password>
+          </local>
+     </database>
+</config>

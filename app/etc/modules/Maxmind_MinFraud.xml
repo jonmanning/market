@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <modules>
+          <MaxMind_MinFraud>
+               <active>true</active>
+               <codePool>minfraud</codePool>
+          </MaxMind_MinFraud>
+     </modules>
+</config>

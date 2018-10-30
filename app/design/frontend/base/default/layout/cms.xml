@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+     <cms_index_index>
+          <block type="cms/index" name="content" as="content" template="cms/home.phtml"/>
+          <!--<block type="minfraud/index" name="minfraud" as="minfraud" template="minfraud/index.phtml"/>-->
+     </cms_index_index>
+
+</layout>

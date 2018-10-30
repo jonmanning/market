@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+     <knowledgebase_index_index>
+          <block type="knowledgebase/index" name="knowledgebase" as="knowledgebase" template="knowledgebase/index.phtml"/>
+     </knowledgebase_index_index>
+
+     <knowledgebase_add_index>
+          <block type="knowledgebase/add" name="knowledgebase_add" as="knowledgebase_add" template="knowledgebase/add.phtml"/>
+     </knowledgebase_add_index>
+
+     <knowledgebase_view_index>
+          <block type="knowledgebase/view" name="knowledgebase_view" as="knowledgebase_view" template="knowledgebase/view.phtml"/>
+     </knowledgebase_view_index>
+
+     <knowledgebase_view_edit>
+          <block type="knowledgebase/view" name="knowledgebase_edit" as="knowledgebase_edit" template="knowledgebase/edit.phtml"/>
+     </knowledgebase_view_edit>
+
+     <knowledgebase_view_delete>
+          <block type="knowledgebase/view" name="knowledgebase_delete" as="knowledgebase_delete" template="knowledgebase/delete.phtml"/>
+     </knowledgebase_view_delete>
+     
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <modules>
+          <Market_Page>
+               <version>0.0.1</version>
+          </Market_Page>
+     </modules>
+     <global>
+          <models>
+               <page>
+                    <class>Market_Page_Models</class>
+               </page>
+          </models>
+          <blocks>
+               <page>
+                    <class>Market_Page_Blocks</class>
+               </page>
+          </blocks>
+     </global>
+     <frontend>
+          <routes>
+               <page>
+                    <use>standard</use>
+                    <args>
+                         <module>Market_Page</module>
+                         <frontName>page</frontName>
+                    </args>
+               </page>
+          </routes>
+          <layout>
+               <updates>
+                    <file>page.xml</file>
+               </updates>
+          </layout>
+     </frontend>
+</config>

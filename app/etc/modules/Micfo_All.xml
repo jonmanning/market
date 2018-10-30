@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <modules>
+          <Micfo_Core>
+               <active>true</active>
+               <codePool>core</codePool>
+          </Micfo_Core>
+          <Micfo_Page>
+               <active>true</active>
+               <codePool>page</codePool>
+               <depends>
+                    <Micfo_Core/>
+               </depends>
+          </Micfo_Page>
+          <Micfo_Cms>
+               <active>true</active>
+               <codePool>cms</codePool>
+               <depends>
+                    <Micfo_Core/>
+               </depends>
+          </Micfo_Cms>
+     </modules>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+     <modules>
+          <Market_Cms>
+               <version>0.0.1</version>
+          </Market_Cms>
+     </modules>
+     <global>
+          <models>
+               <cms>
+                    <class>Market_Cms_Models</class>
+               </cms>
+          </models>
+          <blocks>
+               <cms>
+                    <class>Market_Cms_Blocks</class>
+               </cms>
+          </blocks>
+     </global>
+     <frontend>
+          <routes>
+               <cms>
+                    <use>standard</use>
+                    <args>
+                         <module>Market_Cms</module>
+                         <frontName>cms</frontName>
+                    </args>
+               </cms>
+          </routes>
+          <layout>
+               <updates>
+                    <file></file>
+               </updates>
+          </layout>
+     </frontend>
+</config>

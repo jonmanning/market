@@ -1,0 +1,33 @@
+<?php
+$params = $this->getParams();
+
+$view = $this->load($params[0],$params[1]);
+
+if (isset($_REQUEST['delete']) != '') {
+     $this->deletePage($view);
+     echo "<script>alert('This page has been deleted.');</script>";
+     echo "<script>window.location.replace('/knowledgebase/index/index')</script>";
+} elseif (isset($_REQUEST['cancel']) != '') {
+     echo "<script>window.location.replace('/knowledgebase/view/index/db_title/{$view['db_title']}')</script>";
+}
+?>
+<script>alert("You are about to delete this page. Please click the 'Delete' button below to verify deletion of this page");</script>
+
+<div align="center"><form class="add_kb_form" name="edit_form" method="post">
+
+<h1><?php echo $view['title']; ?></h1>
+
+<p><h2>Author: <?php echo $view['full_name']; ?></h2></p>
+
+<p><h3>Category: <?php echo $view['category']; ?></h3></p>
+<div align="left">
+<p><?php echo html_entity_decode($view['content']); ?></p>
+</div>
+<div id="kb_document_delete_verify">
+     <form class="kb_update_buttons" name="update_buttons" method="post">
+          <p>Please verify that you want to delete this page.<p>
+          <input type="submit" name="delete" value="Delete">
+          <input type="submit" name="cancel" value="Cancel">
+     </form>
+</div>
+</form></div>

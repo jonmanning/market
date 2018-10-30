@@ -1,0 +1,128 @@
+<?php
+if (!isset($params)) {
+     $params = $this->getParams();
+}
+$view = $this->load($params[0], $params[1]);
+
+if (isset($_REQUEST['submit']) != '') {
+
+     if ($_REQUEST['title'] == '') {
+          $this->error("Please fill out Title");
+     } else if (strlen($_REQUEST['title']) > 200) {
+         $this->error("Title too long");
+     } else if ($_REQUEST['category'] == '') {
+       $this->error("please fill out a Category");
+     } else if ($_REQUEST['author'] == '') {
+          $this->error("Please fill out Author");
+     } else if ($_REQUEST['content'] == '') {
+          $this->error("Please fill out Content");
+
+     } else {
+          $view['title']           = $_REQUEST['title'];
+          $view['db_title']        = $this->db_formatted_text($_REQUEST['title']);
+          $view['category_id']     = $_REQUEST['category'];
+          $view['author_id']       = $_REQUEST['author'];
+          $view['content']         = $_REQUEST['content'];
+
+          $this->updatePage($view);
+          ?>
+          <script>
+               alert('The update was successful!');
+               window.location.replace('/knowledgebase/view/index/id/<?php echo $view['kb_documents_meta_id'];?>');
+          </script>";
+          <?php
+     }
+} elseif (isset($_REQUEST['cancel']) != '') {
+     ?>
+     <script>
+          window.location.replace('/knowledgebase/view/index/id/<?php echo $view['kb_documents_meta_id'];?>')
+     </script>
+     <?php
+}
+?>
+<center><form class="add_kb_form" name="edit_form" method="post">
+     <h1><center>Edit Page</center></h1>
+     <div class="form-box">
+          <input type="text" name="title" value="<?php echo $view['title']; ?>"><br>
+     </div>
+     <div class="form-box">
+          <select name="category">
+               <?php echo $this->getCategories($view['category']); ?>
+          </select>
+     </div>
+     <div class="form-box">
+          <select name="author">
+               <?php echo $this->getAuthors($view['full_name']); ?>
+          </select>
+     </div>
+     <div class="form-box">
+           <textarea name="content" value=""><?php echo $view['content'];?></textarea><p>
+     </div>
+     <input type="submit" name="submit" value="Submit">
+     <input type="submit" name="cancel" value="Cancel">
+</form></center><p>
+<center><form class="kb_html_form" name="test_form" method="post">
+     <center><h1>HTML Key</h1></center>
+     <table id="html_key_table">
+          <tr>
+               <th>HTML Input</th>
+               <th>Web Output</th>
+               <th>HTML Input</th>
+               <th>Web Output</th>
+          </tr>
+          <tr>
+               <td>&lt;b&gt;Bold&lt;/b&gt;</td>
+               <td><b>Bold</b></td>
+               <td>&lt;i&gt;Italic&lt;/i&gt;</td>
+               <td><i>Italic</i></td>
+          </tr>
+          <tr>
+               <td>&lt;u&gt;Underline&lt;/u&gt;</td>
+               <td><u>Underline</u></td>
+               <td>Line Break&lt;br&gt;LineBreak</td>
+               <td>Line Break<br>LineBreak</td>
+          </tr>
+          <tr>
+               <td >&lt;h1&gt;Heading 1&lt;/h1&gt;</td>
+               <td><h1>Heading 1</h1></td>
+               <td>&lt;h2&gt;Heading 2&lt;/h2&gt;</td>
+               <td><h2>Heading 2</h2></td>
+          </tr>
+          <tr>
+               <td>&lt;h3&gt;Heading 3&lt;/h3&gt;</td>
+               <td><h3>Heading 3</h3></td>
+               <td>&lt;p&gt;This is a Paragraph&lt;/p&gt;</td>
+               <td><p>This is a Paragraph.</p></td>
+          </tr>
+          <tr>
+               <td>Bulleted List (Unordered List)<br>
+                    &lt;ul&gt;<br>
+                    &lt;li&gt;List Item 1&lt;/li&gt;<br>
+                    &lt;li&gt;List Item 2&lt;/li&gt;<br>
+                    &lt;li&gt;List Item 3&lt;/li&gt;<br>
+                    &lt;/ul&gt;</td>
+               <td><ul>
+                    <li>List Item 1</li>
+                    <li>List Item 2</li>
+                    <li>List Item 3</li>
+               </ul></td>
+               <td>Numbered List (Ordered List)<br>
+                    &lt;ol&gt;<br>
+                    &lt;li&gt;List Item 1&lt;/li&gt;<br>
+                    &lt;li&gt;List Item 2&lt;/li&gt;<br>
+                    &lt;li&gt;List Item 3&lt;/li&gt;<br>
+                    &lt;/ol&gt;</td>
+               <td><ol>
+                    <li>List Item 1</li>
+                    <li>List Item 2</li>
+                    <li>List Item 3</li>
+               </ol></td>
+          </tr>
+          <tr>
+               <td>&lt;a href="http://www.micfo.com"&gt;Link&lt;/a&gt;</td>
+               <td><a href="http://www.micfo.com">Link</a></td>
+               <td>&lt;img src="https://www.micfo.com/img/content/company/ipv6-ready.png"&gt;</td>
+               <td><img src="https://www.micfo.com/img/content/company/ipv6-ready.png"></td>
+          </tr>
+     </table>
+</form></center>
